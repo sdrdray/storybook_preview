@@ -1,5 +1,5 @@
 import React from 'react';
-import './StepProgress.css';
+import './stepprogress.css';
 
 type StepProgressVariant = 
   | 'minimalist'
