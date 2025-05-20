@@ -1,0 +1,2 @@
+[build]
+  command = "npm install sb && npm run build-storybook"

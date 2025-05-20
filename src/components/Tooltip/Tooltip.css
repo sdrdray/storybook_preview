@@ -1,0 +1,149 @@
+.tooltip-container {
+    position: relative;
+    cursor: help;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 1;
+    font-size: 14px;
+    line-height: 1.4;
+    white-space: nowrap;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Position variants with animations */
+.tooltip-top {
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+}
+
+.tooltip-container:hover .tooltip-top {
+    transform: translateX(-50%) scale(1);
+}
+
+.tooltip-bottom {
+    top: 125%;
+    left: 50%;
+    transform: translateX(-50%) scale(0.8);
+}
+
+.tooltip-container:hover .tooltip-bottom {
+    transform: translateX(-50%) scale(1);
+}
+
+.tooltip-left {
+    right: 125%;
+    top: 50%;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.tooltip-container:hover .tooltip-left {
+    transform: translateY(-50%) scale(1);
+}
+
+.tooltip-right {
+    left: 125%;
+    top: 50%;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.tooltip-container:hover .tooltip-right {
+    transform: translateY(-50%) scale(1);
+}
+
+/* Arrow for tooltips with animation */
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    border: 8px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* One arrow for each direction — only using dark color */
+.tooltip-top::after {
+    border-top-color: #2c3e50;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px);
+    opacity: 0;
+}
+
+.tooltip-container:hover .tooltip-top::after {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.tooltip-bottom::after {
+    border-bottom-color: #2c3e50;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    opacity: 0;
+}
+
+.tooltip-container:hover .tooltip-bottom::after {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.tooltip-left::after {
+    border-left-color: #2c3e50;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-4px);
+    opacity: 0;
+}
+
+.tooltip-container:hover .tooltip-left::after {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+}
+
+.tooltip-right::after {
+    border-right-color: #2c3e50;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(4px);
+    opacity: 0;
+}
+
+.tooltip-container:hover .tooltip-right::after {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+}
+
+/* Custom tooltip background variants — just color, no extra triangles */
+.tooltip-info {
+    background-color: #3498db;
+}
+
+.tooltip-success {
+    background-color: #2ecc71;
+}
+
+.tooltip-warning {
+    background-color: #f1c40f;
+}
+
+.tooltip-error {
+    background-color: #e74c3c;
+}

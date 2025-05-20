@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Consolas', monospace;
+}
+
+.default-card {
+  position: relative;
+  width: 320px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.default-card::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(315deg, var(--gradient-start), var(--gradient-end));
+}
+
+.default-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(315deg, var(--gradient-start), var(--gradient-end));
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: blur(30px);
+  opacity: 0.7;
+}
+
+.default-card:hover::before,
+.default-card:hover::after {
+  transform: skewX(0deg);
+  left: 20px;
+  width: calc(100% - 90px);
+}
+
+.default-card span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.default-card span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.1s;
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.default-card:hover span::before {
+  top: -50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.default-card__content {
+  position: relative;
+  z-index: 10;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  transition: 0.5s;
+}
+
+.default-card__content h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.default-card__content p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.default-card__content a {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.default-card__content a:hover {
+  background: #000;
+  color: #fff;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .default-card {
+    width: 280px;
+    height: 350px;
+  }
+
+  .default-card__content h2 {
+    font-size: 1.5em;
+  }
+
+  .default-card__content p {
+    font-size: 0.9em;
+  }
+} 

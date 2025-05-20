@@ -1,0 +1,170 @@
+.menu-hover {
+  --menu-color: #262626;
+  --menu-hover-color: #fff;
+  --menu-bg: #fff;
+  --menu-hover-bg: #262626;
+  --menu-border: 2px;
+  --menu-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --menu-spacing: 20px;
+  --menu-font-size: 18px;
+  --menu-font-weight: 600;
+  --menu-letter-spacing: 0.5px;
+}
+
+.menu-hover * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-hover {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  width: 100%;
+  padding: 20px;
+}
+
+.menu-hover ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--menu-spacing);
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.menu-hover li {
+  position: relative;
+}
+
+.menu-hover a {
+  position: relative;
+  display: block;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  text-decoration: none;
+  color: var(--menu-color);
+  font-size: var(--menu-font-size);
+  font-weight: var(--menu-font-weight);
+  letter-spacing: var(--menu-letter-spacing);
+  transition: var(--menu-transition);
+  overflow: hidden;
+}
+
+.menu-hover .menu-text {
+  position: relative;
+  z-index: 2;
+  transition: var(--menu-transition);
+}
+
+.menu-hover .menu-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--menu-hover-bg);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: var(--menu-transition);
+  z-index: 1;
+}
+
+.menu-hover a::before,
+.menu-hover a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--menu-border);
+  background: var(--menu-color);
+  transform: scaleX(0);
+  transition: var(--menu-transition);
+  z-index: 2;
+}
+
+.menu-hover a::before {
+  top: 0;
+  transform-origin: left;
+}
+
+.menu-hover a::after {
+  bottom: 0;
+  transform-origin: right;
+}
+
+.menu-hover a:hover {
+  color: var(--menu-hover-color);
+}
+
+.menu-hover a:hover::before,
+.menu-hover a:hover::after {
+  transform: scaleX(1);
+}
+
+.menu-hover a:hover .menu-line {
+  transform: scaleY(1);
+}
+
+/* Gradient Variant */
+.menu-hover.gradient {
+  --menu-color: #fff;
+  --menu-hover-color: #fff;
+  --menu-bg: transparent;
+  --menu-hover-bg: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+}
+
+.menu-hover.gradient a {
+  background: var(--menu-bg);
+  border-radius: 4px;
+}
+
+.menu-hover.gradient .menu-line {
+  background: var(--menu-hover-bg);
+}
+
+/* Minimal Variant */
+.menu-hover.minimal {
+  --menu-color: #262626;
+  --menu-hover-color: #262626;
+  --menu-bg: transparent;
+  --menu-hover-bg: transparent;
+  --menu-border: 1px;
+}
+
+.menu-hover.minimal a {
+  padding: 8px 16px;
+}
+
+.menu-hover.minimal a::before,
+.menu-hover.minimal a::after {
+  height: 1px;
+  background: var(--menu-color);
+  transform: scaleX(0);
+  transition: var(--menu-transition);
+}
+
+.menu-hover.minimal a:hover {
+  color: var(--menu-hover-color);
+}
+
+.menu-hover.minimal a:hover::before,
+.menu-hover.minimal a:hover::after {
+  transform: scaleX(1);
+}
+
+.menu-hover.minimal .menu-line {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-hover ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .menu-hover a {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+} 

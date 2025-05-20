@@ -1,0 +1,653 @@
+.step-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  .step {
+    padding: 10px 15px;
+    border-radius: 20px;
+    background-color: lightgray;
+    color: black;
+  }
+  .step.active {
+    background-color: #1976d2;
+    color: white;
+  }
+  .step.completed {
+    background-color: green;
+    color: white;
+  }
+  
+.step-progress {
+  width: 100%;
+  margin: 20px 0;
+}
+
+/* Minimalist Progress */
+.progress-bar.minimalist {
+  height: 8px;
+  background-color: #e0f2f1;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar.minimalist .progress-fill {
+  height: 100%;
+  background-color: #4db6ac;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar.minimalist .progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Partial Progress */
+.progress-bar.partial {
+  height: 12px;
+  background-color: #e0f2f1;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-bar.partial .progress-fill {
+  height: 100%;
+  background-color: #00897b;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.progress-bar.partial .progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+.percentage-text {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #00897b;
+  animation: fadeInOut 0.5s ease;
+}
+
+/* Simple Progress */
+.progress-simple {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.simple-label {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #ff9800;
+  animation: pulse 2s infinite;
+}
+
+.simple-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #fff3e0;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.simple-fill {
+  height: 100%;
+  background-color: #ff9800;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.simple-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Loading Progress */
+.progress-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading-bar {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.loading-segment {
+  width: 20px;
+  height: 8px;
+  background-color: #e0f2f1;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.loading-segment.active {
+  background-color: #4db6ac;
+}
+
+.loading-text {
+  font-size: 12px;
+  color: #4db6ac;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Horizontal Progress */
+.progress-bar.horizontal {
+  height: 12px;
+  background-color: #e0f2f1;
+  border-radius: 6px;
+  position: relative;
+}
+
+.progress-bar.horizontal .progress-fill {
+  height: 100%;
+  background-color: #00897b;
+  border-radius: 6px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar.horizontal .progress-marker {
+  width: 20px;
+  height: 20px;
+  background-color: #00695c;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s ease;
+}
+
+/* Linear Progress */
+.progress-bar.linear {
+  height: 16px;
+  background-color: #e0f2f1;
+  border-radius: 8px;
+  position: relative;
+}
+
+.progress-bar.linear .progress-fill {
+  height: 100%;
+  background-color: #4db6ac;
+  border-radius: 8px;
+  transition: width 0.3s ease;
+}
+
+.progress-bar.linear .progress-marker {
+  width: 24px;
+  height: 24px;
+  background-color: #9c27b0;
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  transition: left 0.3s ease;
+}
+
+/* Segmented Progress */
+.progress-bar.segmented {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.segment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.segment-text {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.segment-marker {
+  width: 12px;
+  height: 12px;
+  background-color: #e0f2f1;
+  border-radius: 2px;
+}
+
+.segment-marker.active {
+  background-color: #4db6ac;
+}
+
+/* Circles Progress */
+.progress-circles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.progress-circles::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e0f2f1;
+  z-index: 1;
+}
+
+.circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0f2f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00897b;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.circle.active {
+  background-color: #4db6ac;
+  color: white;
+}
+
+.circle.completed {
+  background-color: #00897b;
+  color: white;
+}
+
+.circle-label {
+  font-size: 12px;
+  color: #00897b;
+}
+
+/* Numbered Progress */
+.progress-numbered {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.progress-numbered::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e0f2f1;
+  z-index: 1;
+}
+
+.numbered-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.numbered-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0f2f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00897b;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.numbered-circle.active {
+  background-color: #4db6ac;
+  color: white;
+}
+
+.numbered-circle.completed {
+  background-color: #00897b;
+  color: white;
+}
+
+.numbered-label {
+  font-size: 12px;
+  color: #00897b;
+}
+
+/* Cart Progress */
+.progress-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.cart-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.cart-label {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.cart-marker {
+  width: 24px;
+  height: 24px;
+  background-color: #ff9800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Verification Progress */
+.progress-verification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.verification-label {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #4db6ac;
+}
+
+.verification-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #e0f2f1;
+  border-radius: 4px;
+  position: relative;
+}
+
+.verification-marker {
+  width: 16px;
+  height: 16px;
+  background-color: #4db6ac;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Colorful Progress */
+.progress-colorful {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colorful-step {
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.colorful-step.step-1 { background-color: #ffd600; }
+.colorful-step.step-2 { background-color: #ff9800; }
+.colorful-step.step-3 { background-color: #f44336; }
+.colorful-step.step-4 { background-color: #9c27b0; }
+
+/* Arrows Progress */
+.progress-arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow-step {
+  display: flex;
+  align-items: center;
+}
+
+.arrow {
+  width: 20px;
+  height: 2px;
+  background-color: #e0f2f1;
+  margin: 0 8px;
+  position: relative;
+}
+
+.arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-left: 6px solid #e0f2f1;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+/* Checkmarks Progress */
+.progress-checkmarks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.progress-checkmarks::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e0f2f1;
+  z-index: 1;
+}
+
+.checkmark-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.checkmark-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #e0f2f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00897b;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.checkmark-circle.active {
+  background-color: #4db6ac;
+  color: white;
+}
+
+.checkmark-circle.completed {
+  background-color: #00897b;
+  color: white;
+}
+
+.checkmark {
+  font-size: 16px;
+}
+
+.checkmark-label {
+  font-size: 12px;
+  color: #00897b;
+}
+
+/* Horizontal Progress with Circles */
+.progress-horizontal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.horizontal-label {
+  font-size: 12px;
+  margin-bottom: 16px;
+  color: #666;
+  font-weight: 500;
+}
+
+.horizontal-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.horizontal-step {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.horizontal-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  background-color: #ccc;
+  border: 2px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+.horizontal-circle:nth-child(1) { background-color: #ff9800; border-color: #ff9800; }
+.horizontal-circle:nth-child(2) { background-color: #f44336; border-color: #f44336; }
+.horizontal-circle:nth-child(3) { background-color: #e91e63; border-color: #e91e63; }
+.horizontal-circle:nth-child(4) { background-color: #9c27b0; border-color: #9c27b0; }
+.horizontal-circle:nth-child(5) { background-color: transparent; border-color: #666; color: #666; }
+
+.horizontal-circle.active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.horizontal-line {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff9800, #f44336, #e91e63, #9c27b0, #666);
+  margin: 0 8px;
+  transition: all 0.3s ease;
+}
+
+.horizontal-line.completed {
+  background: linear-gradient(90deg, #ff9800, #f44336, #e91e63, #9c27b0);
+}
+  

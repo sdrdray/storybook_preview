@@ -1,0 +1,245 @@
+/* ViewToggle.css */
+.toggle-switch-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between switch and its label if any */
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 70px;
+    height: 34px;
+    cursor: pointer;
+  }
+  
+  .toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, #ffd700, #ffa500);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 34px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    color: #fff;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+  }
+  
+  .icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
+    stroke-width: 2;
+    transition: all 0.4s ease;
+  }
+  
+  .sun-icon {
+    left: 10px;
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .moon-icon {
+    right: 10px;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  
+  input:checked + .slider {
+    background: linear-gradient(to right, #1a1a1a, #4A90E2);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(36px) rotate(360deg);
+  }
+  
+  input:checked + .slider .sun-icon {
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg);
+  }
+  
+  input:checked + .slider .moon-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #4A90E2;
+  }
+  
+  .toggle-label-text {
+    font-size: 1rem;
+    user-select: none;
+    color: inherit;
+    margin-left: 8px;
+    transition: color 0.4s ease;
+  }
+  
+  /* Hover effects */
+  .toggle-switch:hover .slider:before {
+    box-shadow: 0 0 8px rgba(0,0,0,0.3);
+  }
+  
+  .toggle-switch:hover .icon svg {
+    transform: scale(1.1);
+  }
+  
+  /* Active state */
+  .toggle-switch:active .slider:before {
+    transform: scale(0.95);
+  }
+
+/* Base styles */
+.dummy-website {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+/* Light mode styles */
+.light-mode {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.light-mode .website-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.light-mode .website-nav {
+  background-color: #ffffff;
+}
+
+.light-mode .feature-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark-mode .website-header {
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #404040;
+}
+
+.dark-mode .website-nav {
+  background-color: #2d2d2d;
+}
+
+.dark-mode .feature-card {
+  background-color: #2d2d2d;
+  border: 1px solid #404040;
+}
+
+/* Layout styles */
+.website-header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.website-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+.website-nav a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.website-content {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.cta-button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.feature-card {
+  padding: 2rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.website-footer {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+  border-top: 1px solid;
+}

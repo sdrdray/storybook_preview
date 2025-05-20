@@ -1,0 +1,116 @@
+.link-hover {
+  --link-color: #2d3436;
+  --link-hover-color: #0984e3;
+  --link-bg: transparent;
+  --link-hover-bg: transparent;
+  --link-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --link-font-size: 18px;
+  --link-font-weight: 500;
+  --link-letter-spacing: 0.5px;
+  --link-padding: 4px 0;
+  --link-glow-color: rgba(9, 132, 227, 0.3);
+}
+
+.link-hover {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--link-color);
+  font-size: var(--link-font-size);
+  font-weight: var(--link-font-weight);
+  letter-spacing: var(--link-letter-spacing);
+  padding: var(--link-padding);
+  transition: var(--link-transition);
+  overflow: hidden;
+}
+
+.link-hover .link-text {
+  position: relative;
+  z-index: 2;
+  transition: var(--link-transition);
+}
+
+.link-hover .link-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--link-hover-color);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: var(--link-transition);
+  z-index: 1;
+}
+
+/* Underline Variant */
+.link-hover.underline:hover {
+  color: var(--link-hover-color);
+}
+
+.link-hover.underline:hover .link-effect {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Slide Variant */
+.link-hover.slide {
+  --link-color: #fff;
+  --link-hover-color: #fff;
+  --link-bg: #0984e3;
+  --link-hover-bg: #00b894;
+}
+
+.link-hover.slide {
+  background: var(--link-bg);
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: var(--link-color);
+}
+
+.link-hover.slide .link-effect {
+  height: 100%;
+  background: var(--link-hover-bg);
+  transform: translateX(-100%);
+  transform-origin: left;
+}
+
+.link-hover.slide:hover {
+  color: var(--link-hover-color);
+}
+
+.link-hover.slide:hover .link-effect {
+  transform: translateX(0);
+}
+
+/* Glow Variant */
+.link-hover.glow {
+  --link-color: #2d3436;
+  --link-hover-color: #0984e3;
+  --link-glow-color: rgba(9, 132, 227, 0.3);
+}
+
+.link-hover.glow {
+  text-shadow: 0 0 0 var(--link-glow-color);
+}
+
+.link-hover.glow:hover {
+  color: var(--link-hover-color);
+  text-shadow: 0 0 8px var(--link-glow-color),
+               0 0 16px var(--link-glow-color);
+}
+
+.link-hover.glow .link-effect {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .link-hover {
+    font-size: 16px;
+  }
+  
+  .link-hover.slide {
+    padding: 10px 20px;
+  }
+} 
